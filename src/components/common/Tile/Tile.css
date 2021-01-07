@@ -1,0 +1,24 @@
+.tileContainer{
+  height: 4rem;
+  width: 4rem;
+  margin: 2rem;
+  border: 2px solid black;
+}
+
+.notActive {
+  font-weight: 300;
+}
+
+
+.bold {
+  font-weight: 900;
+}
+
+
+.productTile{
+  position:relative;
+  width:12rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  padding:1rem;
+  margin: .5rem 0  0 .5rem;
+}
