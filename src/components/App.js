@@ -1,88 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Tile from './common/Tile/Tile';
 import './App.css';
+import { testData } from '../testData';
+import { Header } from './Header/Header';
+import { Filter } from './Filter/Filter';
 
-
-const slideWidth = 30;
-
-  const _items = [
-    {
-      player: {
-        title: "Efren Reyes",
-        desc:
-          'Known as "The Magician", Efren Reyes is well regarded by many professionals as the greatest all around player of all time.',
-        image: "https://i.postimg.cc/RhYnBf5m/er-slider.jpg"
-      }
-    },
-    {
-      player: {
-        title: "Ronnie O'Sullivan",
-        desc:
-          "Ronald Antonio O'Sullivan is a six-time world champion and is the most successful player in the history of snooker.",
-        image: "https://i.postimg.cc/qBGQNc37/ro-slider.jpg"
-      }
-    },
-    {
-      player: {
-        title: "Shane Van Boening",
-        desc:
-          'The "South Dakota Kid" is hearing-impaired and uses a hearing aid, but it has not limited his ability.',
-        image: "https://i.postimg.cc/cHdMJQKG/svb-slider.jpg"
-      }
-    },
-    {
-      player: {
-        title: "Mike Sigel",
-        desc:
-          'Mike Sigel or "Captain Hook" as many like to call him is an American professional pool player with over 108 tournament wins.',
-        image: "https://i.postimg.cc/C12h7nZn/ms-1.jpg"
-      }
-    },
-    {
-      player: {
-        title: "Willie Mosconi",
-        desc:
-          'Nicknamed "Mr. Pocket Billiards," Willie Mosconi was among the first Billiard Congress of America Hall of Fame inductees.',
-        image: "https://i.postimg.cc/NfzMDVHP/willie-mosconi-slider.jpg"
-      }
-    },
-    {
-      player: {
-        title: "Willie Mosconi",
-        desc:
-          'Nicknamed "Mr. Pocket Billiards," Willie Mosconi was among the first Billiard Congress of America Hall of Fame inductees.',
-        image: "https://i.postimg.cc/NfzMDVHP/willie-mosconi-slider.jpg"
-      }
-    },
-    {
-      player: {
-        title: "Willie Mosconi1",
-        desc:
-          'Nicknamed "Mr. Pocket Billiards," Willie Mosconi was among the first Billiard Congress of America Hall of Fame inductees.',
-        image: "https://i.postimg.cc/NfzMDVHP/willie-mosconi-slider.jpg"
-      }
-    },
-    {
-      player: {
-        title: "Willie Mosconi2",
-        desc:
-          'Nicknamed "Mr. Pocket Billiards," Willie Mosconi was among the first Billiard Congress of America Hall of Fame inductees.',
-        image: "https://i.postimg.cc/NfzMDVHP/willie-mosconi-slider.jpg"
-      }
-    },
-  ];
 
 
 function App() {
+
+  const [filterType, setFilterType] = useState('all')
   return (
-    <Carousel />
+    <React.Fragment>
+      <Header />
+      <Filter selectedOption={filterType} setSelectedOption={setFilterType}/>
+      <Carousel filterType={filterType}/>
+    </React.Fragment>
+
   );
 }
 
 export default App;
 
-
+const xFactor = 17;
+let _items = testData;
 const length = _items.length;
 
 const createItem = (position, activePos) => {
@@ -92,7 +34,7 @@ const createItem = (position, activePos) => {
   if(activePos === length - 2 && position === 0){
     const item = {
       styles: {
-        transform: `translateX(${3*26}rem)`
+        transform: `translateX(${3*xFactor}rem)`
       },
     };
     return item;
@@ -101,7 +43,7 @@ const createItem = (position, activePos) => {
   if(increment){
     const item = {
       styles: {
-        transform: `translateX(${2*26}rem)`
+        transform: `translateX(${2*xFactor}rem)`
       },
     };
     return item;
@@ -110,31 +52,33 @@ const createItem = (position, activePos) => {
   if(decrement){
     const item = {
       styles: {
-        transform: `translateX(${0}rem)`
+        transform: `translateX(${0.5}rem)`
       },
     };
     return item;
   }
   const item = {
     styles: {
-      transform: `translateX(${((position-activePos + 1) + increment)*26}rem)`
+      transform: `translateX(${((position-activePos + 1) + increment)*xFactor}rem)`
     },
   };
   return item;
 };
 
-const CarouselSlideItem = ({position, activePos }) => {
+const CarouselSlideItem = ({position, product, activePos }) => {
   const item = createItem(position, activePos);
   return (
     <li className="carousel__slide-item" style={item.styles}>
-      <Tile number={position} isActive={activePos === position}/>
+      <Tile number={position} isActive={activePos === position} product={product}/>
     </li>
   );
 };
 
 
-const Carousel = () => {
+const Carousel = ({filterType}) => {
   const [activeIdx, setActiveIdx] = React.useState(1);
+
+  let _items = testData;
 
   const prevClick = () => {
     if(activeIdx > 0){
@@ -152,6 +96,11 @@ const Carousel = () => {
     }
   }
 
+  if(filterType !== 'all'){
+    _items = _items.filter(item => item.productCategory.toLowerCase() === filterType);
+  }
+
+
   return (
     <div className="carousel__wrap">
       <div className="carousel__inner">
@@ -163,10 +112,11 @@ const Carousel = () => {
         </button>
         <div className="carousel__container">
           <ul className="carousel__slide-list">
-            {_items.map((pos, i) => (
+            {_items.map((product, i) => (
              <CarouselSlideItem
               key={i}
               position={i}
+              product={product}
               activePos={activeIdx}
             />
             ))}

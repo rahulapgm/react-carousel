@@ -1,12 +1,20 @@
 import './Tile.css';
 
-const Tile = ({number, isActive}) => {
+const Tile = ({number, isActive,  product}) => {
+
+  const { productName, productCategory, marketPrice, productImage } = product;
   return (
-      <div className="productTile">
-        <img src="https://freepngimg.com/thumb/ladyfinger/42364-1-lady-finger-image-free-png-hq-thumb.png"  alt="productName"/>
-        <h3>Carrot</h3>
-        <h4>20 Rs</h4>
-        <h5>Vegetables</h5>
+      <div className={isActive ? 'productTile activeProductTile': "productTile"}>
+        <img className="productImage" src={productImage}  alt={productName}/>
+
+        <div className="productInfo">
+            <p className="productName">{productName}</p>
+            <div className="flex-space-btw">
+              <p className="productCategory">{productCategory}</p>
+              <p className="productPrice">{marketPrice} R.s</p>
+            </div>
+
+        </div>
       </div>
   )
 }

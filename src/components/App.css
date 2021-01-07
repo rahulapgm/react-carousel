@@ -21,17 +21,18 @@ a {
 }
 
 .carousel__wrap {
-  margin-top: 5%;
+  margin: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  top:10%;
 }
 
 .carousel__inner {
   height: 60rem;
   position: relative;
-  width: 60%;
+  width: 50%;
 }
 
 .carousel__container {
@@ -43,17 +44,16 @@ a {
 
 .carousel__slide-list {
   list-style-type: none;
-  margin: 0;
   position: absolute;
-  transform: translateX(-50%);
-  animation-direction: alternate;
+  top:2rem;
+  padding: 1.5rem;
 }
 
 .carousel__slide-item {
   display: inline-block;
   position: absolute;
   text-align: center;
-  transition: all 0.3s;
+  transition: all .5s;
 }
 
 .carousel__btn {
@@ -68,10 +68,10 @@ a {
   transform: translateY(-50%);
 }
 .carousel__btn--prev {
-  left: -4rem;
+  left: -6rem;
 }
 .carousel__btn--next {
-  right: -4rem;
+  right: -6rem;
 }
 
 .carousel__btn-arrow {
