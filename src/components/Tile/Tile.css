@@ -51,10 +51,10 @@ p {
   font-weight: bold;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1200px) {
   .productTile{
     position:relative;
-    width:12rem;
+    width:11rem;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     padding:1rem;
     margin: 0;

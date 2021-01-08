@@ -8,7 +8,7 @@ function App() {
   return (
     <React.Fragment>
       <Header />
-      <div className="flex">
+      <div className="flex flexWrap">
         <Filter selectedOption={filterType} setSelectedOption={(e) => setFilterType(e.target.value)}/>
         <Carousel filterType={filterType}/>
       </div>

@@ -14,7 +14,6 @@ code {
 
 .flex {
   display: flex;
-  flex: 1;
 }
 
 .flexCenter {
@@ -29,4 +28,15 @@ code {
 
 .alignTextCenter {
   text-align: center;
+}
+
+
+.flexWrap{
+  flex: 1 0 600px;
+  flex-wrap: wrap;
+}
+
+.fullWidth{
+  width: 100%;
+
 }
