@@ -34,14 +34,6 @@
   z-index: 1;
 }
 
-
-.carouselBtnArrowRight {
-  border: solid black;
-  border-width: 0 0.4rem 0.4rem 0;
-  height: 2rem;
-  padding: 3px;
-  width: 2rem;
-}
 .carouselBtnArrowLeft {
   transform: rotate(135deg);
 }
@@ -64,5 +56,15 @@
     width: 80rem;
     margin: -3rem;
     margin-top: 2rem;
+  }
+  .carouselContainer {
+    overflow: hidden;
+    position: relative;
+    width: 20rem;
+  }
+  .carouselSlideList {
+    list-style-type: none;
+    padding: 1rem;
+    transform: translate(-200px, 16px);
   }
 }

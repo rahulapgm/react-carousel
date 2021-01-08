@@ -24,17 +24,17 @@ const Carousel = ({ filterType }) => {
 
   const prevClick = () => {
     if(activeIdx > 0){
-      setActiveIdx(activeIdx - 1)
+      setActiveIdx(activeIdx - 2)
     } else if(activeIdx === 0){
       setActiveIdx(items.length - 1)
     }
   };
 
   const nextClick = () => {
-    if(activeIdx < items.length - 1){
-      setActiveIdx(activeIdx + 1)
-    } else if(activeIdx === items.length - 1){
-      setActiveIdx(0)
+    if(activeIdx < items.length - 2){
+      setActiveIdx(activeIdx + 2)
+    } else if(activeIdx >= items.length - 2){
+      setActiveIdx(items.length > 1 ? 1 : 0)
     }
   }
 
