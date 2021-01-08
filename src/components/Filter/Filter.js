@@ -2,10 +2,9 @@ import './Filter.css'
 
 export const Filter = ({selectedOption, setSelectedOption}) => {
   return (
-    <div className="filters">
+    <div className="filters alignTextCenter">
       <h2>Filters</h2>
-
-      <div className="categoryFilter">
+      <div className="alignTextLeft">
         <h4>Category:</h4>
         <select className="categorySelect" value={selectedOption} onChange={setSelectedOption}>
           <option value="all">All</option>

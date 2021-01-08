@@ -1,17 +1,11 @@
 .filters {
   position: relative;
-  text-align: center;
   top:4rem;
   width: 14rem;
   height: 100vh;
   padding: 1rem;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
-
-.categoryFilter {
-  text-align: left;
-}
-
 
 .categorySelect {
   width: 100%;

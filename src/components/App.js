@@ -12,7 +12,6 @@ function App() {
         <Filter selectedOption={filterType} setSelectedOption={(e) => setFilterType(e.target.value)}/>
         <Carousel filterType={filterType}/>
       </div>
-
     </React.Fragment>
   );
 }

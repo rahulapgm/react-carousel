@@ -4,40 +4,36 @@
 }
 
 .carouselInner {
-  display: flex;
-  flex:1;
   justify-content: center;
   width: 100%;
   height: 32rem;
 }
 
 .carouselContainer {
-  display: flex;
-  flex:1;
   overflow: hidden;
   position: relative;
+  width: 16rem;
 }
 
 
 .carouselSlideList {
   list-style-type: none;
-  position: absolute;
-  top:2rem;
   padding: 1rem;
+  margin-top: 4rem;
 }
 
 .carouselBtn {
   display: flex;
-  flex-direction: row;
+  position: relative;
+  cursor: pointer;
   height: 3rem;
   margin: 1rem;
-  position: relative;
   top: 10rem;
   background: 0;
   border: 0;
-  cursor: pointer;
   z-index: 1;
 }
+
 
 .carouselBtnArrowRight {
   border: solid black;

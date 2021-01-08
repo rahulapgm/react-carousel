@@ -7,12 +7,20 @@ import { testData } from '../../testData';
 
 const Carousel = ({ filterType }) => {
   const [activeIdx, setActiveIdx] = React.useState(1);
-
   let items = testData;
   if(filterType !== 'all'){
     items = items.filter(item => item.productCategory.toLowerCase() === filterType);
   }
   let length = items.length;
+
+  React.useEffect(() => {
+    if(length > 1){
+      setActiveIdx(1)
+    } else {
+      setActiveIdx(0)
+    }
+
+  },[length]);
 
   const prevClick = () => {
     if(activeIdx > 0){
@@ -30,25 +38,16 @@ const Carousel = ({ filterType }) => {
     }
   }
 
-  React.useEffect(() => {
-    if(length > 1){
-      setActiveIdx(1)
-    } else {
-      setActiveIdx(0)
-    }
-
-  },[length]);
-
   return (
     <div className="carouselWrap">
-      <div className="carouselInner">
+      <div className="flex carouselInner">
           <button
             className="carouselBtn carouselBtnPrev"
             onClick={() => prevClick()}
           >
             <i className="carouselBtnArrow carouselBtnArrowLeft" />
           </button>
-          <div className="carouselContainer">
+          <div className="flex carouselContainer">
             <ul className="carouselSlideList">
               {items.map((product, i) => (
                 <CarouselSlideItem

@@ -8,5 +8,6 @@
 
 .brandName {
   color: white;
-  text-align: center;
+  font-weight: 600;
+  letter-spacing: .5rem;
 }
