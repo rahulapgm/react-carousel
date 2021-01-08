@@ -31,40 +31,46 @@ const Carousel = ({ filterType }) => {
   }
 
   React.useEffect(() => {
-    setActiveIdx(0)
+    if(length > 1){
+      setActiveIdx(1)
+    } else {
+      setActiveIdx(0)
+    }
+
   },[length]);
 
   return (
     <div className="carouselWrap">
       <div className="carouselInner">
-        <button
-          className="carouselBtn carouselBtnPrev"
-          onClick={() => prevClick()}
-        >
-          <i className="carouselBtnArrow carouselBtnArrowLeft" />
-        </button>
-        <div className="carouselContainer">
-          <ul className="carouselSlideList">
-            {items.map((product, i) => (
-             <CarouselSlideItem
-              key={i}
-              position={i}
-              product={product}
-              activePos={activeIdx}
-              setActiveIdx={setActiveIdx}
-              length={length}
-            />
-            ))}
-          </ul>
+          <button
+            className="carouselBtn carouselBtnPrev"
+            onClick={() => prevClick()}
+          >
+            <i className="carouselBtnArrow carouselBtnArrowLeft" />
+          </button>
+          <div className="carouselContainer">
+            <ul className="carouselSlideList">
+              {items.map((product, i) => (
+                <CarouselSlideItem
+                key={i}
+                position={i}
+                product={product}
+                activePos={activeIdx}
+                setActiveIdx={setActiveIdx}
+                length={length}
+              />
+              ))}
+            </ul>
+          </div>
+          <button
+            className="carouselBtn carouselBtnNext"
+            onClick={() => nextClick()}
+          >
+            <i className="carouselBtnArrow carouselBtnArrowRight" />
+          </button>
         </div>
-        <button
-          className="carouselBtn carouselBtnNext"
-          onClick={() => nextClick()}
-        >
-          <i className="carouselBtnArrow carouselBtnArrowRight" />
-        </button>
-      </div>
     </div>
+
   );
 };
 

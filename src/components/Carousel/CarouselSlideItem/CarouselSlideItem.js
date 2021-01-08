@@ -4,15 +4,12 @@ import './CarouselSlideItem.css';
 
 
 
-const createItem = (position, activePos) => {
-  let increment = 1;
+const createItem = (position, activePos, length) => {
   let xScale = 16;
   let xTranslate = (position-activePos + 1)*xScale;
   if(activePos === 0){
-    increment = 0;
     xTranslate = (position-activePos)*xScale;
   }
-
   const item = {
     styles: {
       transform: `translateX(${xTranslate}rem)`
@@ -22,8 +19,8 @@ const createItem = (position, activePos) => {
 };
 
 
-const CarouselSlideItem = ({product, position, activePos, setActiveIdx }) => {
-  const item = createItem(position, activePos);
+const CarouselSlideItem = ({product, position, activePos, setActiveIdx, length }) => {
+  const item = createItem(position, activePos, length);
   return (
     <li className="carouselSlideItem" style={item.styles} onClick={() => setActiveIdx(position)}>
       <Tile number={position} isActive={activePos === position} product={product}/>
