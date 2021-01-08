@@ -23,10 +23,10 @@ const Carousel = ({ filterType }) => {
   },[length]);
 
   const prevClick = () => {
-    if(activeIdx > 0){
+    if(activeIdx > 1){
       setActiveIdx(activeIdx - 2)
-    } else if(activeIdx === 0){
-      setActiveIdx(items.length - 1)
+    } else if(activeIdx <= 1){
+      setActiveIdx(items.length - 2)
     }
   };
 
