@@ -1,23 +1,23 @@
 .carouselWrap {
-  margin: 5%;
   display: flex;
-  align-items: center;
+  flex:1;
   justify-content: center;
-  position: relative;
-  top:10%;
+  padding: 5%;
 }
 
 .carouselInner {
-  height: 60rem;
+  display: flex;
   position: relative;
-  width: 50%;
+  flex:.48;
+  width: 55rem;
+  height: 60rem;
 }
 
 .carouselContainer {
-  height: 100%;
+  display: flex;
+  flex:1;
   overflow: hidden;
   position: relative;
-  width: 100%;
 }
 
 
@@ -81,5 +81,13 @@
     position: relative;
     top:10%;
     left: 5%;
+  }
+
+  .carouselInner {
+    height: 60rem;
+    position: relative;
+    display: flex;
+    flex:.6;
+    width: 20rem;
   }
 }

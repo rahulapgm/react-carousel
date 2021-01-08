@@ -51,8 +51,6 @@ p {
   font-weight: bold;
 }
 
-
-
 @media only screen and (max-width: 900px) {
   .productTile{
     position:relative;

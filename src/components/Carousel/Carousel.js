@@ -12,6 +12,7 @@ const Carousel = ({ filterType }) => {
   if(filterType !== 'all'){
     items = items.filter(item => item.productCategory.toLowerCase() === filterType);
   }
+  let length = items.length;
 
   const prevClick = () => {
     if(activeIdx > 0){
@@ -24,18 +25,14 @@ const Carousel = ({ filterType }) => {
   const nextClick = () => {
     if(activeIdx < items.length - 1){
       setActiveIdx(activeIdx + 1)
-    } else if(activeIdx === items.length - 1 && items.length > 1){
+    } else if(activeIdx === items.length - 1){
       setActiveIdx(0)
     }
   }
 
   React.useEffect(() => {
-    if(items.length > 1){
-      setActiveIdx(1)
-    } else {
-      setActiveIdx(0)
-    }
-  },[filterType]);
+    setActiveIdx(0)
+  },[length]);
 
   return (
     <div className="carouselWrap">
@@ -55,6 +52,7 @@ const Carousel = ({ filterType }) => {
               product={product}
               activePos={activeIdx}
               setActiveIdx={setActiveIdx}
+              length={length}
             />
             ))}
           </ul>

@@ -2,12 +2,20 @@
 import Tile from '../../Tile/Tile';
 import './CarouselSlideItem.css';
 
-const xFactor = 17;
+
 
 const createItem = (position, activePos) => {
+  let increment = 1;
+  let xScale = 16;
+  let xTranslate = (position-activePos + 1)*xScale;
+  if(activePos === 0){
+    increment = 0;
+    xTranslate = (position-activePos)*xScale;
+  }
+
   const item = {
     styles: {
-      transform: `translateX(${(position-activePos + 1)*xFactor}rem)`
+      transform: `translateX(${xTranslate}rem)`
     },
   };
   return item;
