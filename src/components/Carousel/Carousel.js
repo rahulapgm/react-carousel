@@ -53,7 +53,7 @@ const Carousel = ({ filterType }) => {
             <ul className="carouselSlideList">
               {items.map((product, i) => (
                 <CarouselSlideItem
-                  key={i}
+                  key={product.productId}
                   position={i}
                   product={product}
                   activePos={activeIdx}
