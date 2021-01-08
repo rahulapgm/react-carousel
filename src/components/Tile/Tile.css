@@ -2,9 +2,11 @@
 .activeProductTile {
   transform: scale(1.1);
 }
+
 p {
   margin:0;
 }
+
 .productTile{
   position:relative;
   width:12rem;
@@ -16,13 +18,14 @@ p {
 .productImage {
   width: 100%;
 }
+
 .productInfo {
   background-color:#f7f7f7;
   margin: 0 -1rem -1rem -1rem;
   padding: 0 1rem 1rem 1rem;
 }
 
-.flex-space-btw {
+.flexSpaceBtw {
   display: flex;
   justify-content: space-between;
   margin-top: 0;
@@ -46,4 +49,16 @@ p {
 .productPrice {
   font-size: 16px;
   font-weight: bold;
+}
+
+
+
+@media only screen and (max-width: 900px) {
+  .productTile{
+    position:relative;
+    width:11rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding:1rem;
+    margin: 0;
+  }
 }

@@ -1,0 +1,85 @@
+.carouselWrap {
+  margin: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top:10%;
+}
+
+.carouselInner {
+  height: 60rem;
+  position: relative;
+  width: 50%;
+}
+
+.carouselContainer {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+
+.carouselSlideList {
+  list-style-type: none;
+  position: absolute;
+  top:2rem;
+  padding: 1.5rem;
+}
+
+.carouselBtn {
+  align-items: center;
+  background: 0;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 20%;
+  transform: translateY(-50%);
+}
+.carouselBtnPrev {
+  left: -6rem;
+}
+.carouselBtnNext {
+  right: -6rem;
+}
+
+.carouselBtnArrowRight {
+  border: solid black;
+  border-width: 0 0.4rem 0.4rem 0;
+  height: 2rem;
+  padding: 3px;
+  width: 2rem;
+  z-index: 10;
+}
+.carouselBtnArrowLeft {
+  transform: rotate(135deg);
+}
+.carouselBtnArrowRight {
+  transform: rotate(-45deg);
+}
+
+
+.carouselBtnArrow {
+  border: solid black;
+  border-width: 0 0.4rem 0.4rem 0;
+  height: 2rem;
+  padding: 3px;
+  width: 2rem;
+  z-index: 10;
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .carouselWrap {
+    margin: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top:10%;
+    left: 5%;
+  }
+}

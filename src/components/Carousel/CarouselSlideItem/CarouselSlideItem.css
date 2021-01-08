@@ -1,0 +1,6 @@
+.carouselSlideItem {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+  transition: all .5s;
+}
