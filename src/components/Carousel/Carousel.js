@@ -22,7 +22,7 @@ const Carousel = ({ filterType }) => {
     } else {
       setActiveIdx(0)
     }
-  },[length]);
+  },[filterType, length]);
 
   const prevClick = () => {
     if(activeIdx > 1){
