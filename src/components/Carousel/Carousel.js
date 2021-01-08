@@ -3,10 +3,13 @@ import React from 'react';
 import CarouselSlideItem from './CarouselSlideItem/CarouselSlideItem';
 import './Carousel.css';
 import { testData } from '../../testData';
+import { isMobileDevice } from '../../utils';
 
+const incrementBy = isMobileDevice ? 1 : 2;
 
 const Carousel = ({ filterType }) => {
-  const [activeIdx, setActiveIdx] = React.useState(1);
+  const [activeIdx, setActiveIdx] = React.useState(0);
+
   let items = testData;
   if(filterType !== 'all'){
     items = items.filter(item => item.productCategory.toLowerCase() === filterType);
@@ -19,22 +22,21 @@ const Carousel = ({ filterType }) => {
     } else {
       setActiveIdx(0)
     }
-
   },[length]);
 
   const prevClick = () => {
     if(activeIdx > 1){
-      setActiveIdx(activeIdx - 2)
+      setActiveIdx(activeIdx - incrementBy)
     } else if(activeIdx <= 1){
-      setActiveIdx(items.length - 2)
+      setActiveIdx(items.length - incrementBy)
     }
   };
 
   const nextClick = () => {
-    if(activeIdx < items.length - 2){
-      setActiveIdx(activeIdx + 2)
-    } else if(activeIdx >= items.length - 2){
-      setActiveIdx(items.length > 1 ? 1 : 0)
+    if(activeIdx < items.length - incrementBy){
+      setActiveIdx(activeIdx + incrementBy)
+    } else if(activeIdx >= items.length - incrementBy){
+      setActiveIdx(items.length > 1 && incrementBy !== 1 ? 1 : 0)
     }
   }
 
@@ -51,13 +53,12 @@ const Carousel = ({ filterType }) => {
             <ul className="carouselSlideList">
               {items.map((product, i) => (
                 <CarouselSlideItem
-                key={i}
-                position={i}
-                product={product}
-                activePos={activeIdx}
-                setActiveIdx={setActiveIdx}
-                length={length}
-              />
+                  key={i}
+                  position={i}
+                  product={product}
+                  activePos={activeIdx}
+                  setActiveIdx={setActiveIdx}
+                />
               ))}
             </ul>
           </div>
